@@ -1,6 +1,4 @@
 pytelegrambotapi
 telebot
-gtts
-googletrans
 flask
 gunicorn
