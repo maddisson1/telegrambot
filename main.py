@@ -1,5 +1,5 @@
-from telebot import *
-from flask import *
+import telebot
+import flask
 import requests
 import os
 
