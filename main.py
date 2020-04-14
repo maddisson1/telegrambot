@@ -6,7 +6,7 @@ import flask
 import os
 
 token = '1109064489:AAHovWSdEB0uLmGXLjkUpzrVslwXU2hlKpY'
-
+app_name = 'translator-bot1'
 bot = telebot.TeleBot(token)#подключаем файл к телеграм боту
 server = flask.Flask(__name__)
 @bot.message_handler(commands=['start'])#реагирует на команду старт, обработчик
@@ -33,10 +33,10 @@ def get_message():
 def index():
      print("hello webhook!")
      bot.remove_webhook()
-     bot.set_webhook(url=f"https://{APP_NAME}.herokuapp.com/{token}")
+     bot.set_webhook(url=f"https://{app_name}.herokuapp.com/{token}")
      return "Hello from Heroku!", 200
      
-print(f"https://{APP_NAME}.herokuapp.com/{token}")
+print(f"https://{app_name}.herokuapp.com/{token}")
 print(f"PORT: {int(os.environ.get('PORT', 5000))}")
 if __name__ == "__main__":
      print("started")
