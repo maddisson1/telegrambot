@@ -6,9 +6,9 @@ import os.path
 token = '1109064489:AAHovWSdEB0uLmGXLjkUpzrVslwXU2hlKpY'
 app_name = 'translator-bot1'
 
-
+server = flask.Flask('__name__')
 bot = telebot.TeleBot(token)#подключаем файл к телеграм боту
-server = flask.Flask(__name__)
+
 @bot.message_handler(commands=['start'])#реагирует на команду старт, обработчик
 def start(message):
      msg = bot.send_message(message.chat.id, 'Hey, write me something')#бот отправляет сообщение
