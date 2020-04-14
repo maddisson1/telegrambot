@@ -1,5 +1,4 @@
 pytelegrambotapi
 telebot
-requests
 flask
 gunicorn
