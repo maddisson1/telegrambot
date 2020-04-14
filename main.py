@@ -26,8 +26,8 @@ def index():
      return "Hello from Heroku!", 200
      
 print(f"https://{app_name}.herokuapp.com/{token}")
-print(f"PORT: {int(os.environ.get('PORT', 8000))}")
+print(f"PORT: {int(os.environ.get('PORT', 5000))}")
 if __name__ == '__main__':
      print("started")
-     server.run(host="0.0.0.0", port=int(os.environ.get('PORT', 8000)))    
+     server.run(host="0.0.0.0", port=int(os.environ.get('PORT', 5000)))    
 #bot.polling(none_stop=True)#запускаем поллинг, т.е. цикл
