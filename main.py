@@ -1,7 +1,7 @@
 import telebot
 import flask
 import requests
-import os
+import os.path
 
 token = '1109064489:AAHovWSdEB0uLmGXLjkUpzrVslwXU2hlKpY'
 app_name = 'translator-bot1'
