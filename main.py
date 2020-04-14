@@ -1,7 +1,7 @@
 import telebot #библиотека для создания ботов
-from telebot import types #модуль, отвечающий за клавиатуру
-from gtts import gTTS #библиотека, помогающая воспроизводить текст
-from googletrans import Translator #библиотека, позволяющая переводить текст
+#from telebot import types #модуль, отвечающий за клавиатуру
+#from gtts import gTTS #библиотека, помогающая воспроизводить текст
+#from googletrans import Translator #библиотека, позволяющая переводить текст
 import flask
 import os
 
@@ -14,17 +14,17 @@ bot = telebot.TeleBot(token)#подключаем файл к телеграм �
 @bot.message_handler(commands=['start'])#реагирует на команду старт, обработчик
 def start(message):
      msg = bot.send_message(message.chat.id, 'Hey, write me something')#бот отправляет сообщение
-     bot.register_next_step_handler(msg, voice)#переход на следующую функцию
+#      bot.register_next_step_handler(msg, voice)#переход на следующую функцию
      
-@bot.message_handler(content_types=['text'])#реагирует на текст
-def voice(message):
-     text = message.text #сохраняем текст от пользователя в переменную text
-     translator = Translator()#запускаем переводчик
-     trans = translator.translate(text, dest='ru')#переводим введенный текст на русский
-     speech = gTTS(trans.text, 'ru', slow=False)#преобразовываем переведенный текст в аудио
-     speech.save('translatedtext.mp3')#сохраняем локально, на компьютере
-     sp = open('translatedtext.mp3', 'rb')#открываем аудио файл в режиме считывания
-     bot.send_audio(message.chat.id, sp)#отправляем пользователю
+# @bot.message_handler(content_types=['text'])#реагирует на текст
+# def voice(message):
+#      text = message.text #сохраняем текст от пользователя в переменную text
+#      translator = Translator()#запускаем переводчик
+#      trans = translator.translate(text, dest='ru')#переводим введенный текст на русский
+#      speech = gTTS(trans.text, 'ru', slow=False)#преобразовываем переведенный текст в аудио
+#      speech.save('translatedtext.mp3')#сохраняем локально, на компьютере
+#      sp = open('translatedtext.mp3', 'rb')#открываем аудио файл в режиме считывания
+#      bot.send_audio(message.chat.id, sp)#отправляем пользователю
 
 @server.route('/' + token, methods=['POST'])
 def get_message():
