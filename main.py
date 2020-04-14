@@ -5,8 +5,8 @@ import flask
 import requests
 import os.path
 
+bot = telebot.TeleBot(config.token)#подключаем файл к телеграм боту
 server = flask.Flask(__name__)
-bot = telebot.TeleBot(token)#подключаем файл к телеграм боту
 
 @bot.message_handler(commands=['start'])#реагирует на команду старт, обработчик
 def start(message):
